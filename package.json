@@ -45,6 +45,6 @@
     "parcel-bundler": "^1.12.4"
   },
   "engines": {
-    "node": "8.x"
+    "node": "8.12.0"
   }
 }
