@@ -45,6 +45,6 @@
     "parcel-bundler": "^1.12.4"
   },
   "engines": {
-    "node": "^10"
+    "node": "^6"
   }
 }
