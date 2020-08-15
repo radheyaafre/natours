@@ -23,7 +23,7 @@ const createAndSendToken = (user, statusCode ,req, res) =>{
     res.cookie('jwt',token , {
         expires: new Date (Date.now()+ process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 *1000),
         httpOnly: true,
-        secure: req.secure || req.headers('x-forwarded-proto') === 'https'
+        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
     });
     //remove the password from output
     user.password = undefined;
@@ -36,6 +36,7 @@ const createAndSendToken = (user, statusCode ,req, res) =>{
     }); 
 }
 exports.signup = catchAsync(async(req, res, next) =>{
+    console.log('body',req.body);
     const newUser =await  User.create({
         name: req.body.name,
         email: req.body.email,
