@@ -76,7 +76,7 @@ exports.webhookCheckout = (req, res, next) =>{
             process.env.STRIPE_WEBHOOK_SECRETE
         );
     }catch(err){
-        return res.status(400).send(`Webhook error ${err.message}`);
+        return res.status(400).send(`Webhook error occure ${err.message}`);
     }
     if(event.type === 'checkout.session.completed')
         createBookingCheckout(event.data.object); // the session we sent above for stripe checkout is send by stripe webhook here
