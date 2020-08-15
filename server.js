@@ -10,8 +10,8 @@ dotenv.config({path: './config.env'}); //reads all config.env variables
 
 // for ex: console.log(x);
 process.on('uncaughtException', err => {
-    console.log('hii', err.name, err.message, err.stack);
-    console.log('Uncaught Exception..!');
+    //console.log('hii', err.name, err.message, err.stack);
+    //console.log('Uncaught Exception..!');
     process.exit(1); //shutDown the process (APP)
      
 });
@@ -45,7 +45,7 @@ const server = app.listen(port,()=> {
 // when in application there is a unhandled promice exception occures follo obj gets emmited
 // we are subscribig to it as follow
 process.on('unhandledRejection', err => {
-    console.log('hii', err.name, err.message,err.stack);
+    console.log('err', err.name, err.message,err.stack);
     console.log('Unhandled Rejections..!');
     server.close(() =>{
         process.exit(1); //shutDown the process (APP)

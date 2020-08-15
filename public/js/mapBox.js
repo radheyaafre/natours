@@ -32,7 +32,6 @@ export const displayMap = (locations) => {
 
         //extend map bounds to incude current locations
         bounds.extend(loc.coordinates);
-        console.log('hiii');
     });
 
     map.fitBounds(bounds, {

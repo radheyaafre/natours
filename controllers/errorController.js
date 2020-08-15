@@ -7,9 +7,9 @@ const handleCastErrorDB = err => {
 }
 
 const handleDuplicateFieldsDB = err => {
-    console.log(err);
+    // console.log(err);
     const value = err.keyValue.name;
-    console.log('handleDuplicateFieldsDB', value);
+    // console.log('handleDuplicateFieldsDB', value);
     const message = `duplicate fields ${value} please user another value`;
     return new AppError(message, 400);
 }
@@ -47,7 +47,7 @@ const sendErrorForDev = (err, req, res) => {
 const sendErrorProd = (err, req, res) => {
     // operatopnal trusted erros : send msg to client
     if (req.originalUrl.startsWith('/api')) {
-        console.log('in prod error ' + err.isOperational);
+        // console.log('in prod error ' + err.isOperational);
         if (err.isOperational) {
             return res.status(err.statusCode).json({
                 status: err.status,
@@ -72,7 +72,7 @@ const sendErrorProd = (err, req, res) => {
         // programming or unknown errors    
     } else {
         // log the error
-        console.error('Error :) ', err);
+        console.error('Error (:) ', err);
         // send generic msg
         // Rendered Website    
         res.status(err.statusCode).render('error', {
@@ -85,7 +85,6 @@ const sendErrorProd = (err, req, res) => {
 
 //error handling middle ware 
 module.exports = (err, req, res, next) => {
-    // console.log(err.stack);
     console.log('in errorrr' + process.env.NODE_ENV);
     err.statusCode = err.statusCode || 500;
     err.status = err.status || 'Error';

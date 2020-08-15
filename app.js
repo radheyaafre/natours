@@ -16,6 +16,7 @@ const globalErrorHandler = require('./controllers/errorController');
 const { pathToFileURL } = require('url');
 const { response } = require('express');
 const cookieParser =  require('cookie-parser');
+const compresion = require('compression');
 const app= express();
 
 app.set('view engine', 'pug');
@@ -33,7 +34,7 @@ app.use(helmet());
 //1) global middlewares
 
 //dev logging
-console.log('process.env.NODE_ENV'+process.env.NODE_ENV);
+//console.log('process.env.NODE_ENV'+process.env.NODE_ENV);
 if(process.env.NODE_ENV==='development'){
     app.use(morgan('dev'));//logs the incoming requests
 }
@@ -95,6 +96,8 @@ app.use(hpp({
     next();
 })  
 */
+
+app.use(compresion());
 //test middleware
 app.use((req,res,next)=>{
     req.requestTime = new Date().toISOString();

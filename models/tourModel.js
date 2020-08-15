@@ -174,7 +174,7 @@ tourSchema.pre(/^find/,function(next){ // all strings that wharts with find -> e
 }); 
 
 tourSchema.pre(/^find/,function(next){
-    console.log('in pre of tour');
+    //console.log('in pre of tour');
     this.populate({
         path: 'guides',
         select: '-__v -passwordChangedAt'
@@ -182,11 +182,13 @@ tourSchema.pre(/^find/,function(next){
     next();
 });
 
+/*
 tourSchema.post(/^find/,function(docs,next){ // all strings that wharts with find -> ex: findOne
     console.log(`Query took ${Date.now() - this.Start} milliSeconds`);
     //console.log(docs);
     next();
-}); 
+});
+*/ 
 
 
 
