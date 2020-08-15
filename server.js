@@ -10,8 +10,8 @@ dotenv.config({path: './config.env'}); //reads all config.env variables
 
 // for ex: console.log(x);
 process.on('uncaughtException', err => {
-    //console.log('hii', err.name, err.message, err.stack);
-    //console.log('Uncaught Exception..!');
+    console.log('hii', err.name, err.message, err.stack);
+    console.log('Uncaught Exception..!');
     process.exit(1); //shutDown the process (APP)
      
 });
