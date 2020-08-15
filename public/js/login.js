@@ -22,6 +22,30 @@ export const login = async (email, password) =>{
     }   
 }
 
+export const signup = async (name,email, password, confirmPassword) =>{
+    try{
+        const res= await axios({
+            method: 'post',
+            url: '/api/v1/users/signup',
+            data: {
+                name: name,
+                email: email,
+                password: password,
+                passwordConfirm: confirmPassword
+            }
+        });
+        if(res.data.status ==='Success')
+        {
+            showAlert('success','SignUp sucessfully');
+            window.setTimeout(() => {
+                location.assign('/')
+            },1500);
+        }
+    }catch(err){
+        showAlert('error', err.response.data.message);
+    }   
+}
+
 export const logout = async() =>{
     try{
         const res = await axios({
