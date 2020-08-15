@@ -7,7 +7,7 @@ dotenv.config({path: './config.env'}); //reads all config.env variables
 
 
 // for unhandled exceptions written in non async code
-console.log('hiiiiiiii');
+console.log('hiiiiiihiii');
 // for ex: console.log(x);
 process.on('uncaughtException', err => {
     console.log('hii', err.name, err.message, err.stack);
