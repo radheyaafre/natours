@@ -43,8 +43,5 @@
   "devDependencies": {
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4"
-  },
-  "engines": {
-    "node": "8.12.0"
   }
 }
