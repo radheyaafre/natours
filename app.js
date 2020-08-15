@@ -17,6 +17,7 @@ const { pathToFileURL } = require('url');
 const { response } = require('express');
 const cookieParser =  require('cookie-parser');
 const compresion = require('compression');
+const cors = require('cors');
 const app= express();
 
 app.enable('trust proxy');
@@ -24,6 +25,10 @@ app.enable('trust proxy');
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+//implement cors
+app.use(cors()); //access-control-allow-origin true -->just work for get and post so below code
+
+app.options('*', cors()) //options means any of -> put patch get delete post
 // 
 app.use(express.static(path.join(__dirname, 'public'))); // using this we are setting up the 
 
