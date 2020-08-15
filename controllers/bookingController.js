@@ -8,7 +8,6 @@ const AppError = require('./../utilities/AppError');
 const factory = require('./handlerFactory');
 const mongoose= require('mongoose');
 const expressMongoSanitize = require('express-mongo-sanitize');
-const User = require('../models/userModel');
 
 
 exports.getCheckoutSession = catchAsync(async(req, res, next) =>{
